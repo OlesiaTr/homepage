@@ -9,12 +9,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 
-  --primary-text-color: #181820;
+  --primary-text-color: #1e2939;
   --secondary-text-color: #5c5c62;
   --durability-text-color: #6a737d9c;
-  --icon-color: #6a737d;
-  --border-color: #ff9a0045;
-  --text-decoration-color: #ff9a00;
+  --icon-color: #1e2939;
+  --border-color: #fb6d3a;
+  --text-decoration-color: #e3501a;
 }
 
 .container {
@@ -27,6 +27,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .fv {
@@ -101,6 +102,15 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: start;
+  align-items: center;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-info__item:hover,
+.contact-info__item:focus {
+  color: var(--border-color);
+  box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info__item:not(:last-child) {
@@ -165,9 +175,99 @@ body {
   margin-bottom: 15px;
 }
 
+.skills__list-wrapper {
+  display: flex;
+}
+
 .skills__text {
   color: var(--secondary-text-color);
   text-align: justify;
+}
+
+.skills__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.skills__item {
+  display: flex;
+  align-items: center;
+  background-color: #ebeff49c;
+  border-radius: 8px;
+  gap: 10px;
+  padding: 6px 14px 6px;
+}
+
+.skills__item > svg {
+  /* fill: var(--border-color); */
+}
+
+/* --------- Cat animation --------------- */
+.cat__animation {
+  animation-name: catRotation;
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.cat__moving {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  width: 92px;
+  height: 70px;
+  overflow: hidden;
+
+  animation-name: CatMoving;
+  animation-duration: 5000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.cat__moving:hover {
+  animation-play-state: paused;
+}
+
+@keyframes catRotation {
+  0% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.cat__icon {
+  display: inline-block;
+
+  width: 76px;
+  height: 58px;
+
+  stroke-width: 0;
+  stroke: #1e2939;
+  fill: #1e2939;
+  @include tablet {
+    width: 76px;
+    height: 58px;
+  }
+}
+@keyframes CatMoving {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1600px);
+  }
 }
 
 /* --------- Experience styles --------------- */
