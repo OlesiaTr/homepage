@@ -103,6 +103,14 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-info__item:hover,
+.contact-info__item:focus {
+  color: var(--border-color);
+  box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info__item:not(:last-child) {
